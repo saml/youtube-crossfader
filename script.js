@@ -121,6 +121,7 @@ function onYouTubeIframeAPIReady() {
       buildVideoSettings('nmq9cOK-mIQ', 'player1', 'crossfade1'),
       buildVideoSettings('SMosjLl5AwM', 'player2', 'crossfade2'),
       buildVideoSettings('K9caQYMhaC4', 'player3', 'crossfade3'),
+      buildVideoSettings('Z7CFr8w9z38', 'player4', 'crossfade4'),
     ],
     height,
     width,
