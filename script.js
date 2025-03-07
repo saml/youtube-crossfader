@@ -78,8 +78,12 @@ class YoutubeCrossfader {
       });
 
       ui.crossfadeButton.addEventListener('click', () => {
-        player.setVolume(0);
+        if (youtubeCrossfader.currentPlayer == player) {
+          alert('Refusing to crossfade to the same video');
+          return;
+        }
 
+        player.setVolume(0);
         YoutubeCrossfader.crossfade({
           firstPlayer: youtubeCrossfader.currentPlayer,
           secondPlayer: player,
@@ -115,13 +119,14 @@ function buildVideoSettings(videoId, playerId, crossfadeButtonId) {
 function onYouTubeIframeAPIReady() {
   const height = 390;
   const width = 640;
-  const crossfadeDurationSecs = 15;
+  const crossfadeDurationSecs = 10;
   const youtubeCrossfader = YoutubeCrossfader.build({
     videos: [
       buildVideoSettings('nmq9cOK-mIQ', 'player1', 'crossfade1'),
       buildVideoSettings('SMosjLl5AwM', 'player2', 'crossfade2'),
-      buildVideoSettings('K9caQYMhaC4', 'player3', 'crossfade3'),
-      buildVideoSettings('Z7CFr8w9z38', 'player4', 'crossfade4'),
+      buildVideoSettings('geeKNF_Eb9I', 'player3', 'crossfade3'),
+      buildVideoSettings('K9caQYMhaC4', 'player4', 'crossfade4'),
+      buildVideoSettings('Z7CFr8w9z38', 'player5', 'crossfade5'),
     ],
     height,
     width,
